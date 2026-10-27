@@ -1,0 +1,54 @@
+# LAPORAN TUGAS — booksales-api REST API (Laravel 12)
+Nama: Muhammad Rizki | Universitas Trisakti
+
+## LINK REPOSITORY GITHUB
+https://github.com/064102400020-bit/Tugas_Pertemuan3FAREMWORKLARAVEL_MuhammadRizki_universtias_trisakti
+
+## LOKASI FILE CONTROLLER
+- BookController   : app/Http/Controllers/BookController.php
+- AuthorController : app/Http/Controllers/AuthorController.php
+
+## FILE YANG DIBUAT/DIUBAH
+FILE BARU:
+  + app/Http/Controllers/AuthorController.php
+  + app/Http/Controllers/BookController.php
+  + app/Models/Author.php
+  + app/Models/Book.php
+  + database/migrations/2026_10_27_120823_create_authors_table.php
+  + database/migrations/2026_10_27_120823_create_books_table.php
+  + routes/api.php
+
+FILE DIUBAH:
+  ~ bootstrap/app.php (tambah API routing + global JSON error handler)
+
+FILE VIEW DIHAPUS:
+  Tidak ada view Book/Author sebelumnya (proyek fresh install)
+  welcome.blade.php dipertahankan (tidak digunakan API)
+
+## DAFTAR ENDPOINT API (10 endpoint)
+GET    /api/authors          - Tampilkan semua author
+POST   /api/authors          - Tambah author baru
+GET    /api/authors/{id}     - Detail author + daftar buku
+PUT    /api/authors/{id}     - Update penuh author
+PATCH  /api/authors/{id}     - Update sebagian author
+DELETE /api/authors/{id}     - Hapus author
+
+GET    /api/books            - Tampilkan semua buku + author
+POST   /api/books            - Tambah buku baru
+GET    /api/books/{id}       - Detail buku + data author
+PUT    /api/books/{id}       - Update penuh buku
+PATCH  /api/books/{id}       - Update sebagian buku
+DELETE /api/books/{id}       - Hapus buku
+
+## STATUS PUSH GITHUB
+BERHASIL - branch main -> origin/main
+URL: https://github.com/064102400020-bit/Tugas_Pertemuan3FAREMWORKLARAVEL_MuhammadRizki_universtias_trisakti
+
+## BUKTI PENGUJIAN (HASIL AKTUAL)
+GET  /api/authors     -> 200 {"success":true,"data":[]}
+POST /api/authors     -> 201 Author Pramoedya berhasil dibuat (id:1)
+POST /api/books       -> 201 Buku Bumi Manusia berhasil dibuat (id:1)
+GET  /api/books       -> 200 Data buku + author tampil
+GET  /api/books/1     -> 200 Detail buku + author
+PATCH /api/books/1    -> 200 Price & stock berhasil diperbarui
+DELETE /api/authors/999 -> 404 {"success":false,"message":"Author tidak ditemukan"}
